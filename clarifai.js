@@ -1,10 +1,9 @@
 function getCredentials(cb) {
   var data = {
     'grant_type': 'client_credentials',
-    'client_id' : CLIENT_ID,
-    'client_secret': CLIENT_SECRET
+    'client_id' : "h2YGxeMPj5DQR5hN_i7ar-qKUvNQ00kavwK0uwa6",
+    'client_secret': "s42sl5Fc5Ex_xKzscqnIajF2fMLKZvby1PvzmvDs"
   };
-  
   return $.ajax({
     'url': 'https://api.clarifai.com/v1/token',
     'data': data,
@@ -22,7 +21,6 @@ function getImage(imgurl) {
     'url': imgurl
   };
   var accessToken = localStorage.getItem('accessToken');
-  
   return $.ajax({
     'url': ('https://api.clarifai.com/v1/tag/?model=nsfw-v0.1&url=' + imgurl),
     'headers': {
@@ -43,4 +41,5 @@ function run(imgurl) {
   } else {
     getImage(imgurl);
   }
+  return imgurl;
 }
