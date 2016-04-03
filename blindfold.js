@@ -1,5 +1,6 @@
 (function (document){
 	getBlindFold.init(funGif);
+	console.log("IM IN BLINDFOLD.JS!");
 	var images = document.getElementsByTagName('img'), length = images.length
 
 	for (var i = 0; i<length; i++) {

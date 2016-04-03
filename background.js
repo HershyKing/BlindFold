@@ -1,3 +1,4 @@
-chrome.webNavigation.onCompleted.addListener(function(tab) {
-	chrome.tabs.executeScript(tab.id, {file: "searchTunes.js"
+chrome.webNavigation.onCompleted.addListener(function(details) {
+	chrome.tabs.executeScript({file: "blindfold.js"})
+	console.log("IM IN background.JS!");
 });

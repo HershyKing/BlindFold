@@ -34,6 +34,7 @@ function getImage(imgurl) {
 }
 
 function run(imgurl) {
+  console.log("IM IN Clarifai.js run loop!");
   if (localStorage.getItem('tokenTimeStamp') - Math.floor(Date.now() / 1000) > 86400
   || localStorage.getItem('accessToken') === null) {
   getCredentials(function() {
