@@ -5,7 +5,7 @@
 
 	for (var i = 0; i<length; i++) {
 
-		var pagePictures = window[run,images[i]];
+		var pagePictures = window[clarifai.run](images[i]);
 		$.get (pagePictures, function(data){
 			var probabilitysfw, probabilitynsfw = (data['results']['results']['tag']['probs']);
 		});
@@ -19,17 +19,17 @@
 })(document),
 
   //Queue Giphy and retrieve random gif
-  var giphy_url = ("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cute+baby+animals");
+  giphy_url = ("http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cute+baby+animals");
   $.get (giphy_url, function(data){
   	var gif_url = (['data']['image_original_url']);
   });
 
-  var funGif = gif_url;,
+  var funGif = gif_url;
 
   function blindfolds(ratio, imageurl){
   	this.ratio = ratio;
   	this.imageurl = imageurl;
-  },
+  }
 
   var getBlindFold = {
   	init: function(funGif){
@@ -57,7 +57,7 @@
 
   function Randomize(images){
   	return Math.floor(Math.random() * images.length)
-  },
+  }
 
   function imageRatio(image){
   	var proportion = image.height/image.width;
@@ -69,4 +69,4 @@
   	} else if (proportion < 1) {
   		return "horizontal";
   	}
-  };
+  }
